@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OYSTER & BAAJRO | Pure Veg Rooftop Restro & Fine Dine, Ajmer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Marcellus&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg-dark: #0a0a0e;
+      --bg-card: #14141a;
+      --gold: #d4af37;
+      --gold-light: #f5e7b2;
+      --gold-dark: #a67f08;
+      --rajasthani-maroon: #5b111a;
+      --rajasthani-ochre: #d67a18;
+      --rajasthani-card: #1f1214;
+      --text-main: #f3f3f6;
+      --text-muted: #a0a0ab;
+      --accent: #e5a93b;
+      --transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+      transition: background 0.6s ease, color 0.6s ease;
+    }
+
+    body.baajro-theme {
+      --bg-dark: #12090b;
+      --bg-card: #201013;
+      --accent: #e07a2a;
+      background-color: #12090b;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 14, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      transition: var(--transition);
+    }
+    .baajro-theme header {
+      background: rgba(18, 9, 11, 0.92);
+      border-bottom: 1px solid rgba(214, 122, 24, 0.25);
+    }
+    .nav-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand-switch {
+      display: flex;
+      gap: 10px;
+      background: rgba(255,255,255,0.06);
+      padding: 5px;
+      border-radius: 50px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .tab-btn {
+      padding: 9px 24px;
+      border-radius: 40px;
+      border: none;
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: var(--transition);
+      color: var(--text-muted);
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #e5b342, #996e14);
+      color: #000;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.45);
+    }
+    .tab-btn.baajro-tab.active {
+      background: linear-gradient(135deg, #e07a2a, #8d212b);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(224, 122, 42, 0.45);
+    }
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+    .admin-nav-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: var(--gold) !important;
+      padding: 7px 18px;
+      border-radius: 20px;
+    }
+    .admin-nav-btn:hover {
+      background: var(--gold);
+      color: #000 !important;
+    }
+
+    /* HERO SECTION WITH DYNAMIC BRAND BACKGROUNDS */
+    .hero-section {
+      position: relative;
+      min-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px 45px 20px;
+      overflow: hidden;
+      background-image: url('a-perfect-blend-of-fine.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: background-image 0.6s ease-in-out;
+    }
+
+    /* BAAJRO ROYAL RAJASTHANI FORT BACKGROUND */
+    .baajro-theme .hero-section {
+      background-image: url('images.jfif');
+    }
+
+    /* SCRIM & VIGNETTE OVERLAYS */
+    .hero-bg-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center 35%, rgba(10, 10, 14, 0.82) 0%, rgba(10, 10, 14, 0.96) 85%);
+      z-index: 1;
+      pointer-events: none;
+      transition: background 0.6s ease;
+    }
+    .baajro-theme .hero-bg-overlay {
+      background: radial-gradient(circle at center 35%, rgba(20, 10, 12, 0.78) 0%, rgba(16, 7, 9, 0.96) 85%);
+    }
+
+    .hero-particles {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+      background-size: 32px 32px;
+      opacity: 0.45;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 950px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* EMBEDDED BRAND TITLE */
+    .hero-brand-heading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .brand-crest {
+      font-size: 26px;
+      color: var(--gold);
+      margin-bottom: 6px;
+      filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+    }
+    .baajro-theme .brand-crest {
+      color: var(--rajasthani-ochre);
+      filter: drop-shadow(0 0 12px rgba(224, 122, 42, 0.6));
+    }
+    .brand-title-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(38px, 6vw, 62px);
+      font-weight: 900;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, #fff7d6 0%, #d4af37 60%, #856108 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.9));
+      line-height: 1.1;
+    }
+    .baajro-theme .brand-title-text {
+      background: linear-gradient(180deg, #ffe2cc 0%, #e07a2a 60%, #8d212b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-subline {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .brand-subline::before, .brand-subline::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .baajro-theme .brand-subline::before, .brand-subline::after {
+      background: linear-gradient(90deg, transparent, var(--rajasthani-ochre), transparent);
+    }
+    .brand-subline span {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+    .hero-tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 14px;
+      letter-spacing: 2.5px;
+      color: #cfcfe0;
+      margin-top: 8px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .baajro-theme .hero-tagline {
+      color: #f7ba79;
+    }
+
+    /* TALKING SPEECH BUBBLE */
+    .speech-bubble-wrap {
+      min-height: 48px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+    .speech-bubble {
+      position: relative;
+      background: rgba(18, 14, 18, 0.95);
+      border: 1px solid var(--gold);
+      border-radius: 20px;
+      padding: 8px 22px;
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 7px 7px 0;
+      border-style: solid;
+      border-color: var(--gold) transparent transparent transparent;
+      display: block;
+      width: 0;
+    }
+    .baajro-theme .speech-bubble {
+      border-color: var(--rajasthani-ochre);
+      color: #fde8d0;
+    }
+    .baajro-theme .speech-bubble::after {
+      border-color: var(--rajasthani-ochre) transparent transparent transparent;
+    }
+
+    /* MASCOT STAGE */
+    .mascot-stage {
+      position: relative;
+      width: 320px;
+      height: 310px;
+      margin: 0 auto 10px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: crosshair;
+    }
+    .mascot-shadow {
+      position: absolute;
+      bottom: 5px;
+      width: 170px;
+      height: 22px;
+      background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.7) 0%, rgba(0,0,0,0) 70%);
+      border-radius: 50%;
+      z-index: 2;
+      transition: transform 0.15s ease-out;
+    }
+    .mascot-svg-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* HANDS MOVING ANIMATION */
+    @keyframes handsFoldAndBreath {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-4px) scale(1.02); }
+    }
+    .hands-breath-anim {
+      transform-origin: 180px 280px;
+      animation: handsFoldAndBreath 3.2s ease-in-out infinite;
+    }
+
+    .mascot-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(10, 10, 14, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+    }
+    .baajro-theme .mascot-badge {
+      border-color: rgba(224, 122, 42, 0.4);
+      color: #f7c793;
+    }
+
+    /* ACTION BUTTONS */
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 26px;
+      border-radius: 35px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.8px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+    }
+    .btn-whatsapp:hover {
+      background: #1eb956;
+      transform: translateY(-3px) scale(1.03);
+    }
+    .btn-call {
+      background: linear-gradient(135deg, #e5b342, #b8860b);
+      color: #000;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.35);
+    }
+    .btn-call:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+    .btn-map {
+      background: rgba(10, 10, 14, 0.7);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(8px);
+    }
+    .btn-map:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px) scale(1.03);
+    }
+    .btn-insta {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff;
+    }
+    .btn-insta:hover {
+      transform: translateY(-3px) scale(1.03);
+    }
+
+    /* SECTIONS COMMON */
+    section {
+      padding: 70px 24px;
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+      position: relative;
+    }
+    .section-title h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      display: inline-block;
+    }
+    .section-title h2::after {
+      content: '';
+      display: block;
+      width: 65px;
+      height: 3px;
+      background: var(--gold);
+      margin: 12px auto 0 auto;
+      border-radius: 2px;
+    }
+    .baajro-theme .section-title h2::after {
+      background: var(--rajasthani-ochre);
+    }
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    /* ABOUT SECTION */
+    .about-box {
+      background: var(--bg-card);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 18px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 35px;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+    }
+    .baajro-theme .about-box {
+      background: var(--rajasthani-card);
+      border: 1px solid rgba(214, 122, 24, 0.25);
+    }
+    .about-video-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+    }
+    .about-video-wrap video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      max-height: 420px;
+      object-fit: cover;
+    }
+    .about-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 26px;
+      color: var(--gold-light);
+      margin-bottom: 15px;
+    }
+    .baajro-theme .about-text h3 {
+      color: #f7ba79;
+    }
+    .about-text p {
+      line-height: 1.8;
+      color: #d1d1d8;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+    .highlights-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .highlights-list li {
+      font-size: 13px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .highlights-list li i {
+      color: var(--gold);
+    }
+
+    /* MENU SECTION - TEXT ONLY */
+    .menu-filter {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 35px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 22px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold);
+      color: #000;
+      border-color: var(--gold);
+    }
+    .baajro-theme .filter-btn.active {
+      background: var(--rajasthani-ochre);
+      color: #fff;
+      border-color: var(--rajasthani-ochre);
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    .menu-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 22px 24px;
+      transition: var(--transition);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 55, 0.45);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    }
+    .baajro-theme .menu-card:hover {
+      border-color: rgba(224, 122, 42, 0.5);
+    }
+    .menu-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 12px;
+    }
+    .menu-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .veg-dot {
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid #2e7d32;
+      border-radius: 3px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: rgba(46, 125, 50, 0.1);
+    }
+    .veg-dot::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: #2e7d32;
+      border-radius: 50%;
+    }
+    .menu-card h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .menu-price {
+      color: var(--gold);
+      font-family: 'Cinzel', serif;
+      font-weight: 700;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    .baajro-theme .menu-price {
+      color: var(--rajasthani-ochre);
+    }
+    .menu-desc {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-top: 4px;
+    }
+
+    /* VIDEOS, REVIEWS, EVENTS */
+    .video-grid, .review-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+    }
+    .video-card, .review-card {
+      background: var(--bg-card);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: var(--transition);
+    }
+    .video-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+    .video-card video {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      background: #000;
+    }
+    .video-info, .review-card {
+      padding: 20px;
+    }
+    .video-info h4 {
+      font-size: 15px;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+    .video-info p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .reviewer-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #e5b342, #7a580e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #000;
+      font-size: 15px;
+    }
+    .reviewer-meta h4 {
+      font-size: 14px;
+      color: #fff;
+    }
+    .stars {
+      color: #fbbc04;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .review-text {
+      font-size: 13px;
+      color: #d1d1d8;
+      line-height: 1.6;
+    }
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .events-container {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 30px;
+    }
+    .event-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 25px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: center;
+    }
+    .event-card:last-child {
+      border-bottom: none;
+    }
+    .event-date-box {
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+    }
+    .event-day {
+      font-family: 'Cinzel', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .event-month {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+    .no-events-msg {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    /* ADMIN MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-box {
+      background: #16161c;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 16px;
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--gold-light);
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 15px;
+      background: #0f0f14;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+    .form-control:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .admin-tab-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    .admin-subtab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+    }
+    .admin-subtab.active {
+      color: var(--gold);
+      border-bottom: 2px solid var(--gold);
+    }
+    .item-list-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 13px;
+    }
+    .item-list-table th, .item-list-table td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .btn-delete {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #060608;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 50px 24px 25px 24px;
+      text-align: center;
+    }
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 35px;
+      text-align: left;
+      margin-bottom: 40px;
+    }
+    .footer-col h4 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+    .footer-col p, .footer-col a {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+    .footer-col a:hover {
+      color: var(--gold);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .about-box { grid-template-columns: 1fr; }
+      .event-card { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body id="bodyRoot">
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <div class="brand-switch">
+        <button class="tab-btn active" id="oysterTabBtn" onclick="switchBrand('oyster')">
+          <i class="fa-solid fa-martini-glass-citrus"></i> OYSTER ROOFTOP
+        </button>
+        <button class="tab-btn baajro-tab" id="baajroTabBtn" onclick="switchBrand('baajro')">
+          <i class="fa-solid fa-crown"></i> BAAJRO FINE DINE
+        </button>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#aboutSection">About</a></li>
+        <li><a href="#menuSection">Menu</a></li>
+        <li><a href="#guestSection">Guest Reviews</a></li>
+        <li><a href="#eventsSection">Events</a></li>
+        <li><a href="#googleReviewsSection">Google Ratings</a></li>
+        <li><a href="javascript:void(0)" class="admin-nav-btn" onclick="openAdminModal()"><i class="fa-solid fa-lock"></i> Owner Portal</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero-section" id="heroSec">
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-particles"></div>
+    
+    <div class="hero-content">
+      
+      <!-- DYNAMIC SEAMLESS BRAND TITLE -->
+      <div class="hero-brand-heading" id="heroBrandContainer"></div>
+      
+      <div class="hero-tagline" id="heroTagline">Pure Veg Rooftop Restro & Bar | Ajmer</div>
+
+      <!-- INTERACTIVE TALKING SPEECH BUBBLE -->
+      <div class="speech-bubble-wrap">
+        <div class="speech-bubble" id="mascotSpeechBubble">
+          <i class="fa-solid fa-comment-dots"></i> <span id="speechBubbleText">Welcome to Oyster! Let's reserve your scenic sunset view 🍸</span>
+        </div>
+      </div>
+
+      <!-- MASCOT CONTAINER -->
+      <div class="mascot-stage" id="mascotStage" title="Move your cursor anywhere to see the character look around!">
+        <div class="mascot-shadow" id="mascotShadow"></div>
+        <div class="mascot-svg-wrapper" id="mascotSvgWrapper"></div>
+      </div>
+
+      <div class="mascot-badge" id="mascotBadge">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> <span id="mascotNameText">Oyster Chef & Mascot</span>
+      </div>
+
+      <!-- DIRECT ACTIONS -->
+      <div class="hero-actions">
+        <a href="https://wa.me/919828039391?text=Hello%20Oyster%20%26%20Baajro%2C%20I%20would%20like%20to%20reserve%20a%20table." 
+           target="_blank" 
+           class="btn-action btn-whatsapp"
+           onmouseenter="mascotSpeak('whatsapp')" 
+           onmouseleave="mascotResetSpeech()">
+          <i class="fa-brands fa-whatsapp fa-lg"></i> Book on WhatsApp
+        </a>
+        
+        <a href="tel:9828039391" 
+           class="btn-action btn-call"
+           onmouseenter="mascotSpeak('call')" 
+           onmouseleave="mascotResetSpeech()">
+          <i class="fa-solid fa-phone"></i> Call: 9828039391
+        </a>
+        
+        <a href="https://maps.app.goo.gl/JEnrfLKKP5DsCFav7" 
+           target="_blank" 
+           class="btn-action btn-map"
+           onmouseenter="mascotSpeak('map')" 
+           onmouseleave="mascotResetSpeech()">
+          <i class="fa-solid fa-location-dot"></i> Google Maps Location
+        </a>
+        
+        <a id="instaBtn" 
+           href="https://www.instagram.com/oysterajmer/" 
+           target="_blank" 
+           class="btn-action btn-insta"
+           onmouseenter="mascotSpeak('insta')" 
+           onmouseleave="mascotResetSpeech()">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section id="aboutSection">
+    <div class="section-title">
+      <h2 id="aboutHeading">About Oyster Rooftop</h2>
+      <p id="aboutSubheading">Ajmer's Most Scenic Sunset & Premium Pure Veg Dining Destination</p>
+    </div>
+    
+    <div class="about-box">
+      <div class="about-video-wrap">
+        <video id="aboutVideoEl" controls muted autoplay loop playsinline>
+          <source src="Out and In Oyster.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="about-text">
+        <h3 id="aboutTextTitle">Experience Pure Luxury Above Anasagar</h3>
+        <p id="aboutDescription">
+          Perched high above the historic Anasagar lake at Christian Ganj, <strong>OYSTER</strong> offers breathtaking panoramic sunset views, exquisite open-air rooftop ambiance, and a handcrafted 100% Pure Vegetarian menu[cite: 1]. Perfect for family celebrations, kitty parties, romantic dates, and weekend evening vibes[cite: 1].
+        </p>
+        <ul class="highlights-list" id="aboutHighlights">
+          <li><i class="fa-solid fa-check-circle"></i> 100% Pure Veg Fine Dine[cite: 1]</li>
+          <li><i class="fa-solid fa-check-circle"></i> Mesmerizing Lake Sunset View[cite: 1]</li>
+          <li><i class="fa-solid fa-check-circle"></i> Live Mocktails & Continental Delights[cite: 1]</li>
+          <li><i class="fa-solid fa-check-circle"></i> Cozy Rooftop Seating & Private Cabanas[cite: 1]</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION (TEXT-FOCUSED) -->
+  <section id="menuSection">
+    <div class="section-title">
+      <h2>Chef's Special Menu</h2>
+      <p>Handcrafted vegetarian specialties prepared with fresh artisanal ingredients</p>
+    </div>
+
+    <div class="menu-filter" id="menuFilters">
+      <button class="filter-btn active" onclick="filterMenu('all')">All Delicacies</button>
+      <button class="filter-btn" onclick="filterMenu('starters')">Starters & Chaat</button>
+      <button class="filter-btn" onclick="filterMenu('main')">Main Course</button>
+      <button class="filter-btn" onclick="filterMenu('rajasthani')">Rajasthani Special</button>
+      <button class="filter-btn" onclick="filterMenu('beverages')">Beverages & Mocktails</button>
+    </div>
+
+    <div class="menu-grid" id="menuContainer"></div>
+  </section>
+
+  <!-- GUEST REVIEWS & VIDEOS SECTION -->
+  <section id="guestSection">
+    <div class="section-title">
+      <h2>Guest Experience & Videos</h2>
+      <p>Hear directly from our happy guests enjoying unforgettable moments</p>
+    </div>
+
+    <div class="video-grid" id="guestVideoContainer"></div>
+  </section>
+
+  <!-- EVENTS SECTION -->
+  <section id="eventsSection">
+    <div class="section-title">
+      <h2>Events at Oyster & Baajro</h2>
+      <p>Live music, sufi nights, private celebrations & festive gatherings</p>
+    </div>
+
+    <div class="events-container" id="eventsContainer"></div>
+  </section>
+
+  <!-- GOOGLE REVIEWS SECTION -->
+  <section id="googleReviewsSection">
+    <div class="section-title">
+      <h2>Google Map Reviews</h2>
+      <p>Rated 4.8+ Stars by hundreds of food lovers across Rajasthan</p>
+    </div>
+
+    <div class="review-grid" id="googleReviewsContainer"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-col">
+        <h4 id="footerBrand">OYSTER RESTRO & BAR</h4>
+        <p>Opp. Anasagar Old Chaupati, Above Red Tape,<br>Christian Ganj, Ajmer, Rajasthan 305001[cite: 1]</p>
+        <p style="margin-top: 10px;"><strong>Contact:</strong> +91 9828039391[cite: 1]</p>
+      </div>
+      <div class="footer-col">
+        <h4>Opening Hours</h4>
+        <p>Monday - Sunday<br>11:00 AM - 11:30 PM[cite: 1]</p>
+        <p style="color: var(--gold); margin-top: 6px;">Pure Vegetarian Kitchen[cite: 1]</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <p><a href="#heroSec">Home</a></p>
+        <p><a href="#menuSection">Menu</a></p>
+        <p><a href="https://maps.app.goo.gl/JEnrfLKKP5DsCFav7" target="_blank">Get Directions</a></p>
+        <p><a href="javascript:void(0)" onclick="openAdminModal()">Owner Management Login</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 OYSTER & BAAJRO Pure Veg Restro, Ajmer. All rights reserved.[cite: 1]
+    </div>
+  </footer>
+
+  <!-- OWNER LOGIN MODAL -->
+  <div class="modal-overlay" id="adminModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeAdminModal()">&times;</button>
+      
+      <div id="adminLoginView">
+        <h3 style="font-family: 'Cinzel', serif; color: var(--gold); margin-bottom: 20px; text-align: center;">
+          <i class="fa-solid fa-shield-halved"></i> Owner Portal Login
+        </h3>
+        <form onsubmit="handleAdminLogin(event)">
+          <div class="form-group">
+            <label>Admin User ID</label>
+            <input type="text" id="adminUser" class="form-control" placeholder="Enter Owner ID (Owner_Oyster)" required>
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="adminPass" class="form-control" placeholder="Enter Password" required>
+          </div>
+          <button type="submit" class="btn-action btn-call" style="width:100%; justify-content:center;">Log In</button>
+        </form>
+      </div>
+
+      <div id="adminDashboardView" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="font-family: 'Cinzel', serif; color: var(--gold);"><i class="fa-solid fa-sliders"></i> Restaurant Manager</h3>
+          <button onclick="logoutAdmin()" class="btn-delete">Log Out</button>
+        </div>
+
+        <div class="admin-tab-nav">
+          <button class="admin-subtab active" onclick="switchAdminTab('menu')">Manage Menu</button>
+          <button class="admin-subtab" onclick="switchAdminTab('events')">Manage Events</button>
+          <button class="admin-subtab" onclick="switchAdminTab('videos')">Manage Videos</button>
+        </div>
+
+        <div id="adminTabMenu">
+          <h4 style="margin-bottom: 12px; color: #fff;">Add New Menu Item</h4>
+          <form onsubmit="handleAddMenuItem(event)">
+            <div class="form-group">
+              <label>Dish Name</label>
+              <input type="text" id="menuName" class="form-control" placeholder="e.g. Signature Papdi Chaat" required>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select id="menuCategory" class="form-control">
+                <option value="starters">Starters & Chaat</option>
+                <option value="main">Main Course</option>
+                <option value="rajasthani">Rajasthani Special</option>
+                <option value="beverages">Beverages & Mocktails</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Price (₹)</label>
+              <input type="text" id="menuPrice" class="form-control" placeholder="e.g. ₹280" required>
+            </div>
+            <div class="form-group">
+              <label>Description</label>
+              <textarea id="menuDesc" class="form-control" rows="2" placeholder="Describe ingredients, texture, flavor profile..." required></textarea>
+            </div>
+            <button type="submit" class="btn-action btn-call" style="width:100%; justify-content:center;">+ Add Dish to Menu</button>
+          </form>
+
+          <h4 style="margin-top: 25px; margin-bottom: 10px; color: #fff;">Existing Dishes</h4>
+          <table class="item-list-table">
+            <thead>
+              <tr><th>Name</th><th>Category</th><th>Price</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminMenuList"></tbody>
+          </table>
+        </div>
+
+        <div id="adminTabEvents" style="display: none;">
+          <h4 style="margin-bottom: 12px; color: #fff;">Add / Update Event</h4>
+          <form onsubmit="handleAddEvent(event)">
+            <div class="form-group">
+              <label>Event Title</label>
+              <input type="text" id="eventTitle" class="form-control" placeholder="e.g. Live Acoustic Sunset" required>
+            </div>
+            <div class="form-group">
+              <label>Date & Time</label>
+              <input type="text" id="eventDate" class="form-control" placeholder="e.g. Every Weekend, 7 PM" required>
+            </div>
+            <div class="form-group">
+              <label>Details</label>
+              <textarea id="eventDesc" class="form-control" rows="2" placeholder="Event description..." required></textarea>
+            </div>
+            <button type="submit" class="btn-action btn-call" style="width:100%; justify-content:center;">+ Post Event</button>
+          </form>
+
+          <h4 style="margin-top: 25px; margin-bottom: 10px; color: #fff;">Current Events</h4>
+          <table class="item-list-table">
+            <thead>
+              <tr><th>Event</th><th>Date</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminEventList"></tbody>
+          </table>
+        </div>
+
+        <div id="adminTabVideos" style="display: none;">
+          <h4 style="margin-bottom: 12px; color: #fff;">Add Guest Video</h4>
+          <form onsubmit="handleAddVideo(event)">
+            <div class="form-group">
+              <label>Video Title</label>
+              <input type="text" id="videoTitle" class="form-control" placeholder="e.g. Sunset Review" required>
+            </div>
+            <div class="form-group">
+              <label>Video File / URL</label>
+              <input type="text" id="videoSrc" class="form-control" placeholder="e.g. Guest Review.mp4" required>
+            </div>
+            <div class="form-group">
+              <label>Guest Details / Comment</label>
+              <input type="text" id="videoDesc" class="form-control" placeholder="e.g. Kitty Party guests" required>
+            </div>
+            <button type="submit" class="btn-action btn-call" style="width:100%; justify-content:center;">+ Add Video</button>
+          </form>
+
+          <h4 style="margin-top: 25px; margin-bottom: 10px; color: #fff;">Current Videos</h4>
+          <table class="item-list-table">
+            <thead>
+              <tr><th>Title</th><th>Action</th></tr>
+            </thead>
+            <tbody id="adminVideoList"></tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentBrand = 'oyster';
+
+    // MASCOT TEMPLATES
+    const cartoonCharacters = {
+      // 1. OYSTER MASCOT
+      oyster: `
+        <svg id="mascotSvg" viewBox="0 0 300 340" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffd5b5"/>
+              <stop offset="100%" stop-color="#f2ad85"/>
+            </linearGradient>
+            <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#2a2a35"/>
+              <stop offset="100%" stop-color="#14141c"/>
+            </linearGradient>
+            <linearGradient id="goldChefGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#f5d061"/>
+              <stop offset="100%" stop-color="#c48a14"/>
+            </linearGradient>
+          </defs>
+          <g id="mascotTorso" style="transform-origin: 150px 300px; transition: transform 0.08s ease-out;">
+            <path d="M70,270 Q150,250 230,270 L245,340 L55,340 Z" fill="url(#suitGrad)"/>
+            <polygon points="120,265 150,305 135,265" fill="#ffffff"/>
+            <polygon points="180,265 150,305 165,265" fill="#ffffff"/>
+            <polygon points="135,270 165,270 150,280" fill="url(#goldChefGrad)"/>
+            <polygon points="135,286 165,286 150,276" fill="url(#goldChefGrad)"/>
+            <circle cx="150" cy="278" r="4.5" fill="#aa770a"/>
+          </g>
+          <g id="mascotHead" style="transform-origin: 150px 200px; transition: transform 0.08s ease-out;">
+            <rect x="135" y="220" width="30" height="45" fill="url(#skinGrad)" rx="6"/>
+            <ellipse cx="86" cy="180" rx="11" ry="16" fill="#f2ad85"/>
+            <ellipse cx="214" cy="180" rx="11" ry="16" fill="#f2ad85"/>
+            <path d="M95,150 Q85,210 150,240 Q215,210 205,150 Q200,105 150,105 Q100,105 95,150 Z" fill="url(#skinGrad)"/>
+            <g id="chefHat">
+              <path d="M100,118 Q150,112 200,118 L198,95 Q150,90 102,95 Z" fill="url(#goldChefGrad)"/>
+              <path d="M95,95 C75,50 115,20 150,25 C185,20 225,50 205,95 Z" fill="#ffffff" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.3))"/>
+              <line x1="120" y1="45" x2="120" y2="85" stroke="#e0e0ea" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="150" y1="38" x2="150" y2="85" stroke="#e0e0ea" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="180" y1="45" x2="180" y2="85" stroke="#e0e0ea" stroke-width="2.5" stroke-linecap="round"/>
+            </g>
+            <path d="M95,140 Q105,115 150,115 Q195,115 205,140 Q185,125 150,128 Q115,125 95,140 Z" fill="#3b2b1d"/>
+            <path id="mascotEyebrowL" d="M112,148 Q125,142 138,146" stroke="#3b2b1d" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <path id="mascotEyebrowR" d="M162,146 Q175,142 188,148" stroke="#3b2b1d" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+            <g id="eyeLeft" transform="translate(125, 168)">
+              <ellipse cx="0" cy="0" rx="14" ry="17" fill="#ffffff"/>
+              <g id="pupilL" transform="translate(0, 0)">
+                <circle cx="0" cy="0" r="8.5" fill="#1b2838"/>
+                <circle cx="2" cy="1" r="7" fill="#2d527c"/>
+                <circle cx="-2.5" cy="-2.5" r="3.2" fill="#ffffff"/>
+                <circle cx="2.5" cy="2.5" r="1.5" fill="#ffffff"/>
+              </g>
+            </g>
+            <g id="eyeRight" transform="translate(175, 168)">
+              <ellipse cx="0" cy="0" rx="14" ry="17" fill="#ffffff"/>
+              <g id="pupilR" transform="translate(0, 0)">
+                <circle cx="0" cy="0" r="8.5" fill="#1b2838"/>
+                <circle cx="2" cy="1" r="7" fill="#2d527c"/>
+                <circle cx="-2.5" cy="-2.5" r="3.2" fill="#ffffff"/>
+                <circle cx="2.5" cy="2.5" r="1.5" fill="#ffffff"/>
+              </g>
+            </g>
+            <path d="M147,180 Q150,192 154,191" stroke="#e0956b" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path id="mascotSmile" d="M134,208 Q150,225 166,208" stroke="#7a261a" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <circle cx="112" cy="195" r="9" fill="#ff7f7f" opacity="0.45"/>
+            <circle cx="188" cy="195" r="9" fill="#ff7f7f" opacity="0.45"/>
+          </g>
+        </svg>
+      `,
+
+      // 2. BAAJRO VECTOR MASCOT
+      baajro: `
+        <svg id="mascotSvg" viewBox="0 0 340 370" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rajSkin" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f8c199"/>
+              <stop offset="100%" stop-color="#d68d5f"/>
+            </linearGradient>
+            <linearGradient id="angarkhaRed" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#b62b25"/>
+              <stop offset="100%" stop-color="#73110d"/>
+            </linearGradient>
+            <linearGradient id="turbanGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffdc52"/>
+              <stop offset="45%" stop-color="#e87c1e"/>
+              <stop offset="100%" stop-color="#b51b14"/>
+            </linearGradient>
+            <linearGradient id="goldTrim" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffe885"/>
+              <stop offset="100%" stop-color="#c98a12"/>
+            </linearGradient>
+            <radialGradient id="rajPupil" cx="35%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#3d2212"/>
+              <stop offset="65%" stop-color="#140b06"/>
+              <stop offset="100%" stop-color="#000000"/>
+            </radialGradient>
+          </defs>
+
+          <!-- TORSO & SLEEVES -->
+          <g id="mascotTorso" style="transform-origin: 170px 330px; transition: transform 0.08s ease-out;">
+            <path d="M60,265 Q170,235 280,265 L300,370 L40,370 Z" fill="url(#angarkhaRed)"/>
+            <path d="M125,255 L170,300 L215,255" stroke="url(#goldTrim)" stroke-width="4.5" fill="none"/>
+            <path d="M75,290 L110,360" stroke="url(#goldTrim)" stroke-width="3" fill="none"/>
+            <path d="M265,290 L230,360" stroke="url(#goldTrim)" stroke-width="3" fill="none"/>
+            <circle cx="170" cy="302" r="5.5" fill="url(#goldTrim)"/>
+          </g>
+
+          <!-- HEAD & PAGDI -->
+          <g id="mascotHead" style="transform-origin: 170px 180px; transition: transform 0.08s ease-out;">
+            <rect x="154" y="215" width="32" height="42" fill="url(#rajSkin)" rx="6"/>
+            <ellipse cx="98" cy="180" rx="11" ry="16" fill="#d68d5f"/>
+            <ellipse cx="242" cy="180" rx="11" ry="16" fill="#d68d5f"/>
+            <circle cx="97" cy="190" r="5" fill="url(#goldTrim)"/>
+            <circle cx="243" cy="190" r="5" fill="url(#goldTrim)"/>
+            <path d="M108,150 Q98,220 170,240 Q242,220 232,150 Q230,110 170,110 Q110,110 108,150 Z" fill="url(#rajSkin)"/>
+
+            <g id="pagdiLayer" filter="drop-shadow(0 6px 14px rgba(0,0,0,0.5))">
+              <path d="M80,135 C65,65 110,15 170,15 C230,15 275,65 260,135 C240,95 100,95 80,135 Z" fill="url(#turbanGold)"/>
+              <path d="M72,125 Q170,68 268,125 Q170,82 72,125 Z" fill="#b51b14"/>
+              <path d="M82,100 Q170,48 258,100 Q170,62 82,100 Z" fill="#ffdc52"/>
+              <path d="M96,75 Q170,30 244,75 Q170,45 96,75 Z" fill="#e87c1e"/>
+              <path d="M170,30 Q164,5 170,-5 Q176,5 170,30 Z" fill="url(#goldTrim)"/>
+              <circle cx="170" cy="30" r="6" fill="#73110d"/>
+              <path d="M255,120 Q280,170 282,245 Q270,250 264,180 Q260,135 255,120 Z" fill="url(#turbanGold)"/>
+            </g>
+
+            <path d="M165,118 L165,138 Q170,146 175,138 L175,118 Z" fill="#a81b14" stroke="#ffd700" stroke-width="1.2"/>
+            <circle cx="170" cy="147" r="2.5" fill="#ffd700"/>
+
+            <path id="mascotEyebrowL" d="M122,145 Q138,136 154,142" stroke="#1f120c" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+            <path id="mascotEyebrowR" d="M186,142 Q202,136 218,145" stroke="#1f120c" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+
+            <g id="eyeLeft" transform="translate(138, 164)">
+              <ellipse cx="0" cy="0" rx="14" ry="16" fill="#ffffff" stroke="#1f120c" stroke-width="1.5"/>
+              <g id="pupilL" transform="translate(0, 0)">
+                <circle cx="0" cy="0" r="7.5" fill="url(#rajPupil)"/>
+                <circle cx="-2" cy="-2" r="2.6" fill="#ffffff"/>
+                <circle cx="2" cy="2" r="1.4" fill="#ffffff" opacity="0.8"/>
+              </g>
+            </g>
+
+            <g id="eyeRight" transform="translate(202, 164)">
+              <ellipse cx="0" cy="0" rx="14" ry="16" fill="#ffffff" stroke="#1f120c" stroke-width="1.5"/>
+              <g id="pupilR" transform="translate(0, 0)">
+                <circle cx="0" cy="0" r="7.5" fill="url(#rajPupil)"/>
+                <circle cx="-2" cy="-2" r="2.6" fill="#ffffff"/>
+                <circle cx="2" cy="2" r="1.4" fill="#ffffff" opacity="0.8"/>
+              </g>
+            </g>
+
+            <path d="M166,174 Q170,192 174,191" stroke="#a65e38" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+
+            <g id="mascotMoustache" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.4))">
+              <path d="M170,202 Q140,190 114,188 Q100,186 104,175 Q118,177 134,187 Q158,198 170,202 Z" fill="#1c100a"/>
+              <path d="M170,202 Q200,190 226,188 Q240,186 236,175 Q222,177 206,187 Q182,198 170,202 Z" fill="#1c100a"/>
+            </g>
+
+            <path id="mascotSmile" d="M156,214 Q170,226 184,214" stroke="#681e14" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="124" cy="192" r="8.5" fill="#e26d5c" opacity="0.35"/>
+            <circle cx="216" cy="192" r="8.5" fill="#e26d5c" opacity="0.35"/>
+          </g>
+
+          <!-- ANIMATED NAMASTE HANDS -->
+          <g id="mascotNamasteHands" class="hands-breath-anim">
+            <path d="M125,290 L152,255 L164,268 L142,310 Z" fill="url(#angarkhaRed)"/>
+            <path d="M215,290 L188,255 L176,268 L198,310 Z" fill="url(#angarkhaRed)"/>
+            <polygon points="148,258 156,250 166,262 158,270" fill="url(#goldTrim)"/>
+            <polygon points="192,258 184,250 174,262 182,270" fill="url(#goldTrim)"/>
+            <g filter="drop-shadow(0 4px 10px rgba(0,0,0,0.5))">
+              <path d="M162,280 L170,238 L178,280 Q170,290 162,280 Z" fill="url(#rajSkin)" stroke="#a65e38" stroke-width="1.5"/>
+              <line x1="170" y1="240" x2="170" y2="280" stroke="#a65e38" stroke-width="1.5"/>
+            </g>
+          </g>
+        </svg>
+      `
+    };
+
+    // SPEECH DIALOGUES FOR HOVER INTERACTIONS
+    const speechLines = {
+      oyster: {
+        default: "Welcome to Oyster! Let's reserve your scenic sunset view 🍸",
+        whatsapp: "Chat directly on WhatsApp to book private cabanas instantly!",
+        call: "Ring our reception at 9828039391 for table reservations 📞",
+        map: "Find us directly overlooking Anasagar Chaupati in Christian Ganj 📍",
+        insta: "Check out our live sunset reels & rooftop vibes on Instagram! ✨"
+      },
+      baajro: {
+        default: "पधारो म्हारे देस! स्वाद और परंपरा में आपका स्वागत है 🙏",
+        whatsapp: "व्हाट्सएप पर बाजरो का स्पेशल पिटारा व थाली बुक करें! 💬",
+        call: "सीधे कॉल करके शाही बैठक व पगड़ी स्वागत की तैयारी करवाएं! 📞",
+        map: "अजमेर आनासागर चौपाटी के सामने पधारें, रास्ता यहाँ देखें 📍",
+        insta: "हमारे शाही भोजन, चूरमा व पारंपरिक उत्सवों की झलकियाँ देखें! 📸"
+      }
+    };
+
+    // BRAND DATA
+    const brandData = {
+      oyster: {
+        crestIcon: "fa-solid fa-martini-glass-citrus",
+        brandName: "OYSTER",
+        brandSub: "ROOFTOP & BAR",
+        tagline: "Ajmer's Premier Lakeview Sunset Rooftop Dining",
+        aboutHeading: "About Oyster Rooftop Restro",
+        aboutSubheading: "Ajmer's Premier Lakeview Sunset Rooftop Dining",
+        aboutTitle: "Experience Pure Luxury Above Anasagar",
+        aboutDesc: "Perched high above the historic Anasagar lake at Christian Ganj, <strong>OYSTER</strong> offers breathtaking panoramic sunset views, exquisite open-air rooftop ambiance, and a handcrafted 100% Pure Vegetarian menu[cite: 1]. Perfect for family celebrations, kitty parties, romantic dates, and weekend evening vibes[cite: 1].",
+        videoSrc: "Out and In Oyster.mp4",
+        instaLink: "https://www.instagram.com/oysterajmer/",
+        mascotText: "Oyster Chef is watching your cursor & welcoming you!",
+        highlights: [
+          "100% Pure Veg Fine Dine & Rooftop[cite: 1]",
+          "Mesmerizing Lake Anasagar Sunset View[cite: 1]",
+          "Live Mocktails & Gourmet Delicacies[cite: 1]",
+          "Dedicated Kitty Party & Family Lounges[cite: 1]"
+        ]
+      },
+      baajro: {
+        crestIcon: "fa-solid fa-crown",
+        brandName: "BAAJRO",
+        brandSub: "BY OYSTER FINE DINE",
+        tagline: "स्वाद और परंपरा का अनोखा संगम | Pure Veg Fine Dine[cite: 1]",
+        aboutHeading: "About Baajro - स्वाद और परंपरा[cite: 1]",
+        aboutSubheading: "The Royal Authentic Rajasthani Culinary Experience[cite: 1]",
+        aboutTitle: "Baajro Ka Pitara & Kisaan Bhog[cite: 1]",
+        aboutDesc: "Baajro brings you the timeless heritage of Rajasthan! From authentic Bajra & Makka rotis served with pure desi ghee to sizzling Dal Baati Churma, Gatte ka Saag, and special Garlic-Chilli chutneys prepared on traditional sil-batta[cite: 1]. Served with traditional royal hospitality and turban welcoming[cite: 1].",
+        videoSrc: "Baajrao.mp4",
+        instaLink: "https://www.instagram.com/baajroajmer/",
+        mascotText: "पधारो म्हारे देस! Baajro Mascot is greeting you with Namaste!",
+        highlights: [
+          "Baajro Ka Pitara & Traditional Kisaan Bhog[cite: 1]",
+          "Authentic Sil-Batta Chutneys & Desi Ghee[cite: 1]",
+          "Traditional Royal Welcoming with Pagdi[cite: 1]",
+          "Heritage Rajasthani Fine Dine Experience[cite: 1]"
+        ]
+      }
+    };
+
+    // MENU ITEMS
+    let menuItems = [
+      { id: 1, name: "Signature Papdi Chaat", category: "starters", price: "₹210", desc: "Crispy handcrafted papdi tossed with chilled spiced curd, pomegranate pearls, mint glaze & tangy tamarind chutney[cite: 1].", brand: "oyster" },
+      { id: 2, name: "Flame Sizzler Delight", category: "starters", price: "₹340", desc: "Chef's live fire sizzler served with marinated cottage cheese skewers, tossed exotic garden veggies and smoked herb butter.", brand: "oyster" },
+      { id: 3, name: "Baajro Ka Pitara (Kisaan Bhog)", category: "rajasthani", price: "₹490", desc: "Authentic multi-tier brass tiffin with Bajra Roti, Gatte ki Sabzi, Daal, Lehsun Chutney & Chhachh in pure aromatic desi ghee[cite: 1].", brand: "baajro" },
+      { id: 4, name: "Royal Dal Baati Churma", category: "rajasthani", price: "₹420", desc: "Classic crisp baked baatis dipped generously in pure cow ghee, served with panchmel dal, spicy garlic dip and rich almond churma[cite: 1].", brand: "baajro" },
+      { id: 5, name: "Sunset Breeze Mocktail", category: "beverages", price: "₹190", desc: "A refreshing artisanal blend of fresh citrus, passionfruit reduction, crushed mint and sparkling soda overlooking the lake[cite: 1].", brand: "oyster" },
+      { id: 6, name: "Traditional Masala Chhachh", category: "beverages", price: "₹90", desc: "Earthen matka churned spiced buttermilk seasoned with hand-roasted cumin, rock salt and fresh garden mint leaves[cite: 1].", brand: "baajro" },
+      { id: 7, name: "Paneer Lababdar & Garlic Naan", category: "main", price: "₹360", desc: "Rich simmered tomato and cashew velvet gravy with tender cottage cheese cubes, seasoned with royal North-Indian spices.", brand: "oyster" }
+    ];
+
+    let guestVideos = [
+      { id: 1, title: "Guest Kitty Party & Review", file: "Guest Review.mp4", desc: "Guests celebrating birthdays & kitty gatherings praising the lakeview & food quality[cite: 1]." },
+      { id: 2, title: "Traditional Welcome at Baajro", file: "Baajao Welcoming guests.mp4", desc: "Royal turban honour and traditional welcoming Aarti ceremony for guests[cite: 1]." },
+      { id: 3, title: "Baajro Ka Pitara Serving Ritual", file: "Baajrao Serving Guest.mp4", desc: "Live presentation of authentic brass pitara with piping hot ghee and fresh roti[cite: 1]." }
+    ];
+
+    let events = [
+      { id: 1, title: "Live Lakeview Sunset Acoustic Sessions", date: "Every Friday & Saturday (7 PM onwards)", desc: "Enjoy serene live melodies while gazing at the mesmerizing sunset of Anasagar lake[cite: 1]." },
+      { id: 2, title: "Royal Rajasthani Utsav at Baajro", date: "All Week Days (Lunch & Dinner)", desc: "Special traditional Kisaan Bhog thali with folk beats and royal cultural vibes[cite: 1]." }
+    ];
+
+    const googleReviews = [
+      { name: "Pooja Sharma", rating: 5, time: "2 weeks ago", text: "Best rooftop in Ajmer without a doubt! The sunset view over Anasagar is unmatched. Food is 100% pure veg and delicious. Great service by staff.[cite: 1]" },
+      { name: "Rahul Singhal", rating: 5, time: "1 month ago", text: "Visited Baajro by Oyster. The 'Baajro ka Pitara' concept with brass tiffin and authentic bajra roti was mind-blowing! True taste of Rajasthan.[cite: 1]" },
+      { name: "Meenakshi Rathore", rating: 5, time: "3 weeks ago", text: "Superb venue for kitty parties and family dinners. Staff is courteous, turban welcome was very sweet. 10/10 recommend![cite: 1]" },
+      { name: "Vikas Choudhary", rating: 5, time: "a month ago", text: "Clean, elegant, premium vibe. Very nice mocktails and crispy chaat. The evening lights and ambiance are top notch.[cite: 1]" }
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBrandDetails();
+      renderMenu('all');
+      renderGuestVideos();
+      renderEvents();
+      renderGoogleReviews();
+      initCartoonTracking();
+    });
+
+    function switchBrand(brand) {
+      currentBrand = brand;
+      const body = document.getElementById('bodyRoot');
+      const oysterBtn = document.getElementById('oysterTabBtn');
+      const baajroBtn = document.getElementById('baajroTabBtn');
+
+      if (brand === 'baajro') {
+        body.classList.add('baajro-theme');
+        oysterBtn.classList.remove('active');
+        baajroBtn.classList.add('active');
+      } else {
+        body.classList.remove('baajro-theme');
+        baajroBtn.classList.remove('active');
+        oysterBtn.classList.add('active');
+      }
+
+      renderBrandDetails();
+      renderMenu('all');
+      mascotResetSpeech();
+    }
+
+    function renderBrandDetails() {
+      const data = brandData[currentBrand];
+      
+      document.getElementById('heroBrandContainer').innerHTML = `
+        <div class="brand-crest"><i class="${data.crestIcon}"></i></div>
+        <h1 class="brand-title-text">${data.brandName}</h1>
+        <div class="brand-subline"><span>${data.brandSub}</span></div>
+      `;
+
+      document.getElementById('heroTagline').textContent = data.tagline;
+      document.getElementById('instaBtn').href = data.instaLink;
+      document.getElementById('mascotNameText').textContent = data.mascotText;
+      
+      document.getElementById('mascotSvgWrapper').innerHTML = cartoonCharacters[currentBrand];
+
+      document.getElementById('aboutHeading').textContent = data.aboutHeading;
+      document.getElementById('aboutSubheading').textContent = data.aboutSubheading;
+      document.getElementById('aboutTextTitle').textContent = data.aboutTitle;
+      document.getElementById('aboutDescription').innerHTML = data.aboutDesc;
+      
+      const videoEl = document.getElementById('aboutVideoEl');
+      videoEl.querySelector('source').src = data.videoSrc;
+      videoEl.load();
+
+      const hlList = document.getElementById('aboutHighlights');
+      hlList.innerHTML = data.highlights.map(h => `<li><i class="fa-solid fa-check-circle"></i> ${h}</li>`).join('');
+    }
+
+    // INTERACTIVE BUTTON SPEECH REACTION
+    function mascotSpeak(type) {
+      const bubble = document.getElementById('mascotSpeechBubble');
+      const textEl = document.getElementById('speechBubbleText');
+      const msg = speechLines[currentBrand][type] || speechLines[currentBrand].default;
+      
+      bubble.style.transform = 'scale(1.06)';
+      textEl.textContent = msg;
+    }
+
+    function mascotResetSpeech() {
+      const bubble = document.getElementById('mascotSpeechBubble');
+      const textEl = document.getElementById('speechBubbleText');
+      
+      bubble.style.transform = 'scale(1)';
+      textEl.textContent = speechLines[currentBrand].default;
+    }
+
+    // REAL-TIME EYE & HEAD TRACKING
+    function initCartoonTracking() {
+      const stage = document.getElementById('mascotStage');
+      const shadow = document.getElementById('mascotShadow');
+
+      window.addEventListener('mousemove', (e) => {
+        const head = document.getElementById('mascotHead');
+        const torso = document.getElementById('mascotTorso');
+        const pupilL = document.getElementById('pupilL');
+        const pupilR = document.getElementById('pupilR');
+        const eyebrowL = document.getElementById('mascotEyebrowL');
+        const eyebrowR = document.getElementById('mascotEyebrowR');
+
+        if (!head || !pupilL || !pupilR) return;
+
+        const rect = stage.getBoundingClientRect();
+        const stageCenterX = rect.left + rect.width / 2;
+        const stageCenterY = rect.top + rect.height / 2;
+
+        const dx = e.clientX - stageCenterX;
+        const dy = e.clientY - stageCenterY;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const maxDist = Math.max(window.innerWidth, window.innerHeight) / 1.4;
+        const normDist = Math.min(dist / maxDist, 1);
+
+        const maxPupilOffset = 6.0;
+        const angle = Math.atan2(dy, dx);
+        const pupilX = Math.cos(angle) * (normDist * maxPupilOffset);
+        const pupilY = Math.sin(angle) * (normDist * maxPupilOffset);
+
+        pupilL.setAttribute('transform', `translate(${pupilX.toFixed(2)}, ${pupilY.toFixed(2)})`);
+        pupilR.setAttribute('transform', `translate(${pupilX.toFixed(2)}, ${pupilY.toFixed(2)})`);
+
+        const headRot = (dx / window.innerWidth) * 18;
+        const headShiftX = (dx / window.innerWidth) * 14;
+        const headShiftY = (dy / window.innerHeight) * 10;
+
+        head.style.transform = `translate(${headShiftX.toFixed(1)}px, ${headShiftY.toFixed(1)}px) rotate(${headRot.toFixed(1)}deg)`;
+
+        if (torso) {
+          const torsoShiftX = headShiftX * 0.35;
+          const torsoRot = headRot * 0.3;
+          torso.style.transform = `translate(${torsoShiftX.toFixed(1)}px, 0px) rotate(${torsoRot.toFixed(1)}deg)`;
+        }
+
+        if (shadow) {
+          shadow.style.transform = `translateX(${(headShiftX * 0.5).toFixed(1)}px) scale(${1 + (dy < 0 ? 0.05 : -0.05)})`;
+        }
+
+        if (eyebrowL && eyebrowR) {
+          if (dy < -120) {
+            eyebrowL.style.transform = 'translateY(-3px)';
+            eyebrowR.style.transform = 'translateY(-3px)';
+          } else if (dy > 120) {
+            eyebrowL.style.transform = 'translateY(2px)';
+            eyebrowR.style.transform = 'translateY(2px)';
+          } else {
+            eyebrowL.style.transform = 'translateY(0px)';
+            eyebrowR.style.transform = 'translateY(0px)';
+          }
+        }
+      });
+    }
+
+    // RENDER MENU
+    function renderMenu(filter) {
+      const container = document.getElementById('menuContainer');
+      let filtered = menuItems;
+      if (filter !== 'all') {
+        filtered = menuItems.filter(item => item.category === filter);
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color: var(--text-muted);">No dishes in this category.</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map(item => `
+        <div class="menu-card">
+          <div class="menu-card-top">
+            <div class="menu-title-wrap">
+              <span class="veg-dot" title="Pure Veg"></span>
+              <h4>${item.name}</h4>
+            </div>
+            <span class="menu-price">${item.price}</span>
+          </div>
+          <p class="menu-desc">${item.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    function filterMenu(cat) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      renderMenu(cat);
+    }
+
+    function renderGuestVideos() {
+      const container = document.getElementById('guestVideoContainer');
+      container.innerHTML = guestVideos.map(v => `
+        <div class="video-card">
+          <video controls playsinline preload="metadata">
+            <source src="${v.file}" type="video/mp4">
+          </video>
+          <div class="video-info">
+            <h4>${v.title}</h4>
+            <p>${v.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderEvents() {
+      const container = document.getElementById('eventsContainer');
+      if (events.length === 0) {
+        container.innerHTML = `<div class="no-events-msg"><i class="fa-solid fa-champagne-glasses"></i> Currently there are no scheduled private events. We welcome walk-ins daily for dining and sunset views!</div>`;
+        return;
+      }
+
+      container.innerHTML = events.map(e => `
+        <div class="event-card">
+          <div class="event-date-box">
+            <div class="event-day"><i class="fa-solid fa-calendar-star"></i></div>
+            <div class="event-month">EVENT</div>
+          </div>
+          <div>
+            <h3 style="font-family:'Cinzel',serif; color:#fff; font-size:20px; margin-bottom:6px;">${e.title}</h3>
+            <p style="color:var(--gold); font-size:14px; margin-bottom:8px;"><i class="fa-regular fa-clock"></i> ${e.date}</p>
+            <p style="color:var(--text-muted); font-size:14px; line-height:1.6;">${e.desc}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderGoogleReviews() {
+      const container = document.getElementById('googleReviewsContainer');
+      container.innerHTML = googleReviews.map(r => `
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">${r.name.charAt(0)}</div>
+            <div class="reviewer-meta">
+              <h4>${r.name}</h4>
+              <div class="stars">${'<i class="fa-solid fa-star"></i>'.repeat(r.rating)}</div>
+            </div>
+          </div>
+          <p class="review-text">"${r.text}"</p>
+          <div class="google-badge">
+            <i class="fa-brands fa-google" style="color: #4285F4;"></i> Verified Google Maps Review &bull; ${r.time}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ADMIN MANAGEMENT
+    function openAdminModal() { document.getElementById('adminModal').style.display = 'flex'; }
+    function closeAdminModal() { document.getElementById('adminModal').style.display = 'none'; }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('adminUser').value.trim();
+      const pass = document.getElementById('adminPass').value.trim();
+
+      if (user === "Owner_Oyster" && pass === "I am the owner") {
+        document.getElementById('adminLoginView').style.display = 'none';
+        document.getElementById('adminDashboardView').style.display = 'block';
+        populateAdminTables();
+      } else {
+        alert("Invalid Owner Credentials! Please check ID & Password.");
+      }
+    }
+
+    function logoutAdmin() {
+      document.getElementById('adminDashboardView').style.display = 'none';
+      document.getElementById('adminLoginView').style.display = 'block';
+      document.getElementById('adminUser').value = '';
+      document.getElementById('adminPass').value = '';
+      closeAdminModal();
+    }
+
+    function switchAdminTab(tab) {
+      const tabs = document.querySelectorAll('.admin-subtab');
+      tabs.forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+
+      document.getElementById('adminTabMenu').style.display = tab === 'menu' ? 'block' : 'none';
+      document.getElementById('adminTabEvents').style.display = tab === 'events' ? 'block' : 'none';
+      document.getElementById('adminTabVideos').style.display = tab === 'videos' ? 'block' : 'none';
+    }
+
+    function populateAdminTables() {
+      const menuTable = document.getElementById('adminMenuList');
+      menuTable.innerHTML = menuItems.map(item => `
+        <tr>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.category}</td>
+          <td>${item.price}</td>
+          <td><button onclick="deleteMenuItem(${item.id})" class="btn-delete"><i class="fa-solid fa-trash"></i></button></td>
+        </tr>
+      `).join('');
+
+      const eventTable = document.getElementById('adminEventList');
+      eventTable.innerHTML = events.map(ev => `
+        <tr>
+          <td><strong>${ev.title}</strong></td>
+          <td>${ev.date}</td>
+          <td><button onclick="deleteEvent(${ev.id})" class="btn-delete"><i class="fa-solid fa-trash"></i></button></td>
+        </tr>
+      `).join('');
+
+      const videoTable = document.getElementById('adminVideoList');
+      videoTable.innerHTML = guestVideos.map(v => `
+        <tr>
+          <td><strong>${v.title}</strong></td>
+          <td><button onclick="deleteVideo(${v.id})" class="btn-delete"><i class="fa-solid fa-trash"></i></button></td>
+        </tr>
+      `).join('');
+    }
+
+    function handleAddMenuItem(e) {
+      e.preventDefault();
+      const newItem = {
+        id: Date.now(),
+        name: document.getElementById('menuName').value,
+        category: document.getElementById('menuCategory').value,
+        price: document.getElementById('menuPrice').value,
+        desc: document.getElementById('menuDesc').value,
+        brand: currentBrand
+      };
+      menuItems.unshift(newItem);
+      renderMenu('all');
+      populateAdminTables();
+      e.target.reset();
+      alert("Dish added successfully!");
+    }
+
+    function deleteMenuItem(id) {
+      menuItems = menuItems.filter(i => i.id !== id);
+      renderMenu('all');
+      populateAdminTables();
+    }
+
+    function handleAddEvent(e) {
+      e.preventDefault();
+      const newEvent = {
+        id: Date.now(),
+        title: document.getElementById('eventTitle').value,
+        date: document.getElementById('eventDate').value,
+        desc: document.getElementById('eventDesc').value
+      };
+      events.unshift(newEvent);
+      renderEvents();
+      populateAdminTables();
+      e.target.reset();
+      alert("Event published successfully!");
+    }
+
+    function deleteEvent(id) {
+      events = events.filter(e => e.id !== id);
+      renderEvents();
+      populateAdminTables();
+    }
+
+    function handleAddVideo(e) {
+      e.preventDefault();
+      const newVideo = {
+        id: Date.now(),
+        title: document.getElementById('videoTitle').value,
+        file: document.getElementById('videoSrc').value,
+        desc: document.getElementById('videoDesc').value
+      };
+      guestVideos.unshift(newVideo);
+      renderGuestVideos();
+      populateAdminTables();
+      e.target.reset();
+      alert("Video added successfully!");
+    }
+
+    function deleteVideo(id) {
+      guestVideos = guestVideos.filter(v => v.id !== id);
+      renderGuestVideos();
+      populateAdminTables();
+    }
+  </script>
+</body>
+</html>
